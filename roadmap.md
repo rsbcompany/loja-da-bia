@@ -23,8 +23,8 @@ reais não podem ficar expostos em repositório público ou bundle.
 
 ### Migração dos dados reais
 
-- Importar os pedidos originais (cópia local em `private-data/originals/`)
-  para o banco privado — eles não voltam para arquivos versionados.
+- Importar os pedidos da planilha (versionados em `src/data/seed.json`) para o
+  banco privado via `bun run db:import`.
 - Migrar o app do IndexedDB para a API autenticada, mantendo as telas atuais.
 
 ## Fase 1: Higienização e Contato Rápido (Quick Win no App)

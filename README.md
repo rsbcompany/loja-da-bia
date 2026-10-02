@@ -25,11 +25,10 @@ navegador com IndexedDB.
 
 ## Privacidade dos dados
 
-- Os dados versionados são **sintéticos de demonstração**, gerados por
-  `tools/build_seed.py` a partir de `tools/pedidos.csv`.
-- Cópias dos dados originais ficam em `private-data/originals/`, pasta
-  ignorada pelo Git. **Nunca publique dados reais** (nomes, telefones,
-  Instagram) em arquivos versionados.
+- Os pedidos da planilha original estão versionados no repositório e alimentam
+  o IndexedDB — a Bia os classifica como **dados fictícios de demonstração**.
+- Cópias de segurança locais ficam em `private-data/originals/`, pasta
+  ignorada pelo Git.
 - Persistência local em IndexedDB (`src/lib/bia/store.tsx`), sem servidor. O
   [roadmap](roadmap.md) define a Fase 0 — backend autenticado com banco
   privado — como pré-requisito para usar dados reais em deploy compartilhado.
@@ -51,7 +50,7 @@ Requisitos: [Bun](https://bun.sh) e Python 3.
 | `bun run lint`       | ESLint                                                    |
 | `bun run format`     | Prettier                                                  |
 
-Regenerar o seed sintético (nunca editar `src/data/seed.json` à mão):
+Regenerar o seed a partir da planilha (nunca editar `src/data/seed.json` à mão):
 
 ```sh
 python3 tools/build_seed.py

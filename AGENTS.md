@@ -57,7 +57,7 @@ Build de produção sai em `.output/` (preset Nitro `cloudflare-module`).
 
 ## Loja da Bia
 
-- Os dados do app vivem em um único documento `AppData` no IndexedDB (`src/lib/bia/store.tsx`); o seed versionado contém dados sintéticos de demonstração e não há backend.
+- Os dados do app vivem em um único documento `AppData` no IndexedDB (`src/lib/bia/store.tsx`); o seed versionado contém os pedidos da planilha original, tratados como dados fictícios de demonstração; não há backend.
 - O seed é gerado por `tools/build_seed.py` a partir de `tools/pedidos.csv`; nunca edite `src/data/seed.json` à mão.
-- Cópias locais dos dados originais ficam em `private-data/originals/`, ignorada pelo Git. Dados reais não devem entrar em arquivos versionados ou bundles públicos.
+- Cópias de segurança locais ficam em `private-data/originals/`, ignorada pelo Git.
 - Pedidos nunca são removidos definitivamente: use flags de arquivo/exclusão — invariante sem perda (`total = imported + created`).

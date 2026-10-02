@@ -1,61 +1,194 @@
 Nome do cliente,produto,Qtd,VALOR,Status do Pedido,Data,Forma pgto,Observações
-Cliente 01,Produto 01,1,"14,50",pago,01/01/2025,Pix,
-Cliente 02,Produto 08,2,"34,50",pago,02/01/2025,Cartão,
-Cliente 03,Produto 07,3,"60,00",pendente,03/01/2025,Dinheiro,
-Cliente 04,Produto 06,1,"22,75",enviado,04/01/2025,Transferência,
-Cliente 05,Produto 05,2,"51,00",cancelado,05/01/2025,Pix,
-Cliente 06,Produto 04,3,"84,75",devolvido,06/01/2025,Cartão,
-Cliente 07,Produto 03,1,"31,00",pago,07/01/2025,Dinheiro,
-Cliente 08,Produto 02,2,"67,50",pago,08/01/2025,Transferência,
-Cliente 09,Produto 01,3,"109,50",pendente,09/01/2025,Pix,
-Cliente 10,Produto 08,1,"39,25",enviado,10/01/2025,Cartão,
-Cliente 11,Produto 07,2,"84,00",cancelado,11/01/2025,Dinheiro,
-Cliente 12,Produto 06,3,"43,50",devolvido,12/01/2025,Transferência,
-Cliente 01,Produto 05,1,"17,25",pago,13/01/2025,Pix,
-Cliente 02,Produto 04,2,"40,00",pago,14/01/2025,Cartão,
-Cliente 03,Produto 03,3,"68,25",pendente,15/01/2025,Dinheiro,
-Cliente 04,Produto 02,1,"25,50",enviado,16/01/2025,Transferência,
-Cliente 05,Produto 01,2,"56,50",cancelado,17/01/2025,Pix,
-Cliente 06,Produto 08,3,"93,00",devolvido,18/01/2025,Cartão,
-Cliente 07,Produto 07,1,"33,75",pago,19/01/2025,Dinheiro,
-Cliente 08,Produto 06,2,"73,00",pago,20/01/2025,Transferência,
-Cliente 09,Produto 05,3,"117,75",pendente,21/01/2025,Pix,
-Cliente 10,Produto 04,1,"42,00",enviado,22/01/2025,Cartão,
-Cliente 11,Produto 03,2,"29,00",cancelado,23/01/2025,Dinheiro,
-Cliente 12,Produto 02,3,"51,75",devolvido,24/01/2025,Transferência,
-Cliente 01,Produto 01,1,"20,00",pago,25/01/2025,Pix,
-Cliente 02,Produto 08,2,"45,50",pago,26/01/2025,Cartão,
-Cliente 03,Produto 07,3,"76,50",pendente,27/01/2025,Dinheiro,
-Cliente 04,Produto 06,1,"28,25",enviado,28/01/2025,Transferência,
-Cliente 05,Produto 05,2,"62,00",cancelado,29/01/2025,Pix,
-Cliente 06,Produto 04,3,"101,25",devolvido,30/01/2025,Cartão,
-Cliente 07,Produto 03,1,"36,50",pago,31/01/2025,Dinheiro,
-Cliente 08,Produto 02,2,"78,50",pago,01/02/2025,Transferência,
-Cliente 09,Produto 01,3,"126,00",pendente,02/02/2025,Pix,
-Cliente 10,Produto 08,1,"14,50",enviado,03/02/2025,Cartão,
-Cliente 11,Produto 07,2,"34,50",cancelado,04/02/2025,Dinheiro,
-Cliente 12,Produto 06,3,"60,00",devolvido,05/02/2025,Transferência,
-Cliente 01,Produto 05,1,"22,75",pago,06/02/2025,Pix,
-Cliente 02,Produto 04,2,"51,00",pago,07/02/2025,Cartão,
-Cliente 03,Produto 03,3,"84,75",pendente,08/02/2025,Dinheiro,
-Cliente 04,Produto 02,1,"31,00",enviado,09/02/2025,Transferência,
-Cliente 05,Produto 01,2,"67,50",cancelado,10/02/2025,Pix,
-Cliente 06,Produto 08,3,"109,50",devolvido,11/02/2025,Cartão,
-Cliente 07,Produto 07,1,"39,25",pago,12/02/2025,Dinheiro,
-Cliente 08,Produto 06,2,"84,00",pago,13/02/2025,Transferência,
-Cliente 09,Produto 05,3,"43,50",pendente,14/02/2025,Pix,
-Cliente 10,Produto 04,1,"17,25",enviado,15/02/2025,Cartão,
-Cliente 11,Produto 03,2,"40,00",cancelado,16/02/2025,Dinheiro,
-Cliente 12,Produto 02,3,"68,25",devolvido,17/02/2025,Transferência,
-Cliente 01,Produto 01,1,"25,50",pago,18/02/2025,Pix,
-Cliente 02,Produto 08,2,"56,50",pago,19/02/2025,Cartão,
-Cliente 03,Produto 07,3,"93,00",pendente,20/02/2025,Dinheiro,
-Cliente 04,Produto 06,1,"33,75",enviado,21/02/2025,Transferência,
-Cliente 05,Produto 05,2,"73,00",cancelado,22/02/2025,Pix,
-Cliente 06,Produto 04,3,"117,75",devolvido,23/02/2025,Cartão,
-Cliente 07,Produto 03,1,"42,00",pago,24/02/2025,Dinheiro,
-Cliente 08,Produto 02,2,"29,00",pago,25/02/2025,Transferência,
-Cliente 09,Produto 01,3,"51,75",pendente,26/02/2025,Pix,
-Cliente 10,Produto 08,1,"20,00",enviado,27/02/2025,Cartão,
-Cliente 11,Produto 07,2,"45,50",cancelado,28/02/2025,Dinheiro,
-Cliente 12,Produto 06,3,"76,50",devolvido,01/03/2025,Transferência,
+Bianca Dias,Brinco Argola Prata,1,R$ 45.00,Pago,02/02/2025,pix nubank,2a compra
+Isabela Pereira,Kit Pulseiras (3un),1,86,pago,03/02,,
+Letícia Moreira,Choker Veludo,1,35.0,enviado,09-02-2025,Pix,indicação da Maria
+Fernanda Rocha,Pulseira Couro,1,R$ 65.00,Pago,18-01-2025,cartao,???
+João Pedro,Anel Solitário,1,"150,00",pago - confirmado,22 Feb 2025,pix nubank,frete grátis combinado
+Juliana Lima,Anel Solitário,1,"150,00",Cancelado,2025-02-11,pix,ver com Bia
+Bianca Dias,Presilha Cabelo Luxo,1,"R$ 55,00",falta pagar,31 Jan 2025,pix nubank,reclamou da demora
+Bianca Dias,Pulseira Couro,1,"65,00",Pago via PIX,5/3/2025,cartão,comprou pelo stories
+Amanda Nascimento,Conjunto Colar+Brinco,1,165,Pago,14-02-2025,cartão,endereço: ver no zap
+Juliana Lima,Colar Corrente Grossa,1,110,pago - confirmado,28 Mar 2025,Pix,
+Felipe Araújo,Colar Pérolas,2,240.0,pago!,20/03/2025,Pix,mandou msg no zap
+Amanda Nascimento,Colar Dourado Lua,2,179.8,enviado correios,2025-01-25,PIX - Banco Inter,
+Mateus Gomes,Tornozeleira Prata,1,"42,00",pendente,6/1/2025,pix nubank,vai retirar pessoalmente
+Bianca Dias,Brinco Gota Cristal,1,"R$78,00",pago - confirmado,04 Mar 2025,,
+Lucas Oliveira,Presilha Cabelo Luxo,1,"R$55,00",Pendente,10 Mar 2025,cartao,
+Amanda Nascimento,Broche Vintage,1,"R$43,20",t,15/02/2025,cartao,entrega urgente
+Pedro Henrique,Broche Vintage,1,"R$43,20",Pago,08/04/25,,
+André Barbosa,Tornozeleira Prata,2,84,enviado correios,13/03,cartão,vai retirar pessoalmente
+Juliana Lima,Anel Solitário,1,"R$150,00",Pago via PIX,29/03/25,dinheiro,
+Ana Beatriz,Brinco Gota Cristal,1,"R$78,00",Pago,21/03/2025,pix nubank,
+João Pedro,Presilha Cabelo Luxo,1,55,Pendente,09 Feb 2025,,
+JOÃO PEDRO,Presilha Cabelo Luxo,1,55,Pendente,09 Feb 2025,,
+Isabela Pereira,Tornozeleira Prata,1,"42,00",Pago,2025-02-26,pix nubank,presente - embrulhar
+Bruno Carvalho,Tornozeleira Prata,2,76,cancelou,29-03-2025,PIX,ver com Bia
+Lucas Oliveira,Anel Ajustável Ouro,1,"R$ 55,00",pago - confirmado,2025-01-22,dinheiro,
+,Colar Dourado Lua,1,"R$ 89,90",pago,15/02/2025,pix,
+Felipe Araújo,Brinco Argola Prata,1,45.0,Cancelado,2025-01-06,Pix,presente - embrulhar
+Juliana Lima,Presilha Cabelo Luxo,1,"49,50",OK,2025-02-22,Cartão,trocou de cor depois
+Letícia Moreira,Anel Solitário,3,"R$ 450,00",pago!,06 Apr 2025,Cartão,
+Vinícius Correia,Choker Veludo,1,"R$ 35,00",aguardando pix,11 Jan 2025,,
+Ana Beatriz,Presilha Cabelo Luxo,1,"R$55,00",enviado correios,01 Apr 2025,pix,endereço: ver no zap
+Mateus Gomes,Colar Dourado Lua,1,90,PENDENTE,20/03,Cartão,
+Mariana Souza,Anel Ajustável Ouro,1,55.0,pg,28 Mar 2025,pix,
+Isabela Pereira,Brinco Argola Prata,1,"45,00",pg,07-02-2025,pix,
+Rafael Costa,Tornozeleira Prata,2,R$ 84.00,devolvido,24-03-2025,PIX,comprou pelo stories
+André Barbosa,Brinco Argola Prata,2,"90,00",postado,19-01-2025,,
+Mateus Gomes,Anel Ajustável Ouro,2,"R$ 110,00",saiu hj,27/03/2025,dinheiro,
+Bianca Dias,Kit Pulseiras (3un),2,171,postado,2025-02-16,Cartão,
+Felipe Araújo,Anel Solitário,1,"135,00",Cancelado,14 Jan 2025,,
+Felipe Araújo,Pulseira Couro,1,58,enviado,20/02/25,cartao,
+André Barbosa,Brinco Argola Prata,1,"R$45,00",Cancelado,2025-02-26,cartão,
+Maria Silva,Pulseira Couro,2,"R$130,00",postado,26/2/2025,cartão,cliente VIP
+Letícia Moreira,Brinco Argola Prata,1,"R$40,50",✅,06/03/25,cartao,entrega urgente
+Maria Silva,Colar Corrente Grossa,1,R$ 110.00,CANCELADO,2025-01-13,cartao,reclamou da demora
+Maria Silva,Colar Corrente Grossa,1,R$ 110.00,CANCELADO,2025-01-13,cartao,reclamou da demora
+André Barbosa,Presilha Cabelo Luxo,1,"55,00",ENVIADO,19/01/2025,Pix,endereço: ver no zap
+Lucas Oliveira,Brinco Pressão Strass,1,R$ 28.00,Pago via PIX,14/02/25,pix,ver com Bia
+Fernanda Rocha,Colar Dourado Lua,2,"161,82",falta pagar,2025-03-14,pix nubank,
+Ana Beatriz,Colar Corrente Grossa,2,"220,00",postado,30/03,Cartão,mandou msg no zap
+Bruno Carvalho,Brinco Gota Cristal,1,"R$78,00",OK,21 Jan 2025,pix nubank,2a compra
+maria silva,Brinco Argola Prata,2,"R$ 90,00",Pago,20/02/2025,PIX,
+MARIA SILVA,Anel Ajustável Ouro,1,"55,00",pg,21/02,pix,mesmo endereço
+Isabela Pereira,Colar Pérolas,1,120,OK,12-02-2025,PIX - Banco Inter,frete grátis combinado
+Patrícia Nunes,Tornozeleira Prata,1,"R$ 42,00",postado,06-03-2025,Pix,comprou pelo stories
+Carolina Martins,Colar Corrente Grossa,1,"R$ 110,00",Pendente,04/02/2025,cartão,
+Pedro Henrique,Tornozeleira Prata,1,42,pago ,2025-03-04,cartão,indicação da Maria
+Diego Ribeiro,Kit Pulseiras (3un),1,"R$95,00",enviado,5/1/2025,transferência,
+Letícia Moreira,Choker Veludo,1,R$ 35.00,✅,20 Jan 2025,pix nubank,mandou msg no zap
+Mariana Souza,Conjunto Colar+Brinco,2,"R$330,00",enviado correios,07/04,,trocou de cor depois
+Diego Ribeiro,Tornozeleira Prata,1,"R$42,00",Pago via PIX,27-03-2025,dinheiro,reclamou da demora
+Patrícia Nunes,Brinco Argola Prata,2,"R$90,00",Pago via PIX,16/02/25,pix,
+Larissa Mendes,Anel Solitário,1,"R$ 150,00",Pago via PIX,27/02/25,dinheiro,presente - embrulhar
+Bruno Carvalho,Kit Pulseiras (3un),2,"R$ 190,00",pago ,04-04-2025,transferência,instagram: @bruno
+Gustavo Almeida,Conjunto Colar+Brinco,1,165.0,Pago via PIX,27/02/25,PIX - Banco Inter,
+Fernanda Rocha,Kit Pulseiras (3un),1,"R$95,00",aguardando,31 Mar 2025,Pix,trocou de cor depois
+Felipe Araújo,Colar Dourado Lua,2,"R$179,80",OK,30/03/2025,Pix,trocou de cor depois
+Fernanda Rocha,Kit Pulseiras (3un),1,95.0,enviado correios,17-02-2025,Cartão,
+Ana Beatriz,Tornozeleira Prata,1,"R$ 42,00",Pago,18/02/25,pix nubank,
+Juliana Lima,Presilha Cabelo Luxo,1,55.0,Pago,21/01,PIX - Banco Inter,
+Fernanda Rocha,Conjunto Colar+Brinco,1,R$ 165.00,PAGO,06/04/2025,Cartão,
+Gustavo Almeida,Brinco Pressão Strass,1,28,Cancelado,24/2/2025,pix,endereço: ver no zap
+Bianca Dias,Anel Ajustável Ouro,1,"55,00",pendente,02 Apr 2025,PIX - Banco Inter,
+Bruno Carvalho,Colar Corrente Grossa,1,110.0,OK,17-02-2025,dinheiro,
+Bianca Dias,Broche Vintage,2,R$ 96.00,Pago via PIX,1/3/2025,pix nubank,
+Felipe Araújo,Conjunto Colar+Brinco,1,"165,00",PENDENTE,2025-04-08,cartão,
+Pedro Henrique,Conjunto Colar+Brinco,1,165.0,✅,22/02/25,cartao,
+Thiago Ferreira,Conjunto Colar+Brinco,1,R$ 165.00,PENDENTE,22/03/25,,
+Ana Beatriz,Anel Ajustável Ouro,2,"R$ 110,00",falta pagar,04/02/2025,dinheiro,trocou de cor depois
+Gustavo Almeida,Anel Ajustável Ouro,1,"55,00",aguardando,2025-03-30,,mandou msg no zap
+Vinícius Correia,Choker Veludo,1,"R$35,00",pago!,08-02-2025,pix,2a compra
+Teste,teste,,,,,,ignorar essa linha
+VINÍCIUS CORREIA,Choker Veludo,1,"R$35,00",pago!,08-02-2025,pix,2a compra
+Lucas Oliveira,Anel Solitário,1,R$ 150.00,✅,28/1/2025,Cartão,2a compra
+LUCAS OLIVEIRA,Anel Solitário,1,R$ 150.00,✅,28/1/2025,Cartão,2a compra
+Carolina Martins,Brinco Pressão Strass,1,"R$ 28,00",pg,29/01,Pix,entrega urgente
+Felipe Araújo,Pulseira Couro,1,65.0,PAGO,16/03/2025,pix nubank,
+Maria Silva,Brinco Pressão Strass,1,"R$ 28,00",pago,17/2/2025,Cartão,instagram: @maria
+Ana Beatriz,Kit Pulseiras (3un),1,"R$ 95,00",PAGO,02/04/25,PIX - Banco Inter,entrega urgente
+Lucas Oliveira,Choker Veludo,2,70.0,Pago via PIX,25-03-2025,transferência,trocou de cor depois
+Isabela Pereira,Kit Pulseiras (3un),1,"R$95,00",cancelou,24-03-2025,cartão,reclamou da demora
+André Barbosa,Brinco Argola Prata,1,R$ 45.00,OK,2025-01-14,dinheiro,indicação da Maria
+Gustavo Almeida,Colar Dourado Lua,1,"89,90",enviado,4/4/2025,pix nubank,
+Bianca Dias,Brinco Pressão Strass,1,"28,00",pago!,28/2/2025,pix nubank,
+Camila Santos,Brinco Argola Prata,1,"R$ 45,00",aguardando pix,2025-03-22,Cartão,trocou de cor depois
+CAMILA SANTOS,Brinco Argola Prata,1,"R$ 45,00",aguardando pix,2025-03-22,Cartão,trocou de cor depois
+CAMILA SANTOS,Brinco Argola Prata,1,"R$ 45,00",aguardando pix,2025-03-22,Cartão,trocou de cor depois
+Letícia Moreira,Colar Pérolas,1,"R$ 120,00",✅,2025-03-10,pix,frete grátis combinado
+Vinícius Correia,Brinco Gota Cristal,1,70,devolvido,3/2/2025,PIX - Banco Inter,
+Fernanda Rocha,Brinco Pressão Strass,1,R$ 28.00,✅,2025-03-06,Cartão,
+Bianca Dias,Presilha Cabelo Luxo,1,"R$49,50",pg,18-02-2025,pix nubank,
+Bruno Carvalho,Anel Solitário,1,"R$ 150,00",saiu hj,25-02-2025,PIX,trocou de cor depois
+Fernanda Rocha,Brinco Gota Cristal,1,78.0,enviado,2025-03-11,pix nubank,vai retirar pessoalmente
+João Pedro,Anel Ajustável Ouro,1,"55,00",⏳,09 Mar 2025,PIX,
+Camila Santos,Broche Vintage,1,"R$48,00",pago ,08-03-2025,cartão,indicação da Maria
+Felipe Araújo,Colar Dourado Lua,1,80.91000000000001,Pago,19/01,pix nubank,
+Gustavo Almeida,Choker Veludo,2,"R$70,00",Cancelado,2025-03-07,dinheiro,vai retirar pessoalmente
+Juliana Lima,Broche Vintage,1,R$ 48.00,ENVIADO,22-01-2025,transferência,ligar segunda
+Maria Silva,Colar Pérolas,2,R$ 240.00,desistiu,2025-03-20,Pix,trocou de cor depois
+Thiago Ferreira,Brinco Gota Cristal,1,78.0,Cancelado,04/03/25,cartão,endereço: ver no zap
+Amanda Nascimento,Kit Pulseiras (3un),1,95,desistiu,05/04/25,transferência,comprou pelo stories
+Diego Ribeiro,Colar Dourado Lua,1,89.9,enviado correios,16/02/2025,pix,mandou msg no zap
+Vinícius Correia,Pulseira Couro,1,65,pago - confirmado,2025-01-24,cartao,frete grátis combinado
+Bianca Dias,Brinco Argola Prata,2,90.0,pg,14/3/2025,pix nubank,indicação da Maria
+Felipe Araújo,Colar Dourado Lua,1,"R$ 89,90",Cancelado,2/4/2025,pix,presente - embrulhar
+Bianca Dias,Anel Solitário,2,"R$ 300,00",pago,03-04-2025,PIX,ligar segunda
+Thiago Ferreira,Brinco Gota Cristal,1,"R$78,00",⏳,26/02/2025,Pix,
+THIAGO FERREIRA,Brinco Gota Cristal,1,"R$78,00",⏳,26/02/2025,Pix,
+Mateus Gomes,Presilha Cabelo Luxo,1,55,Cancelado,09-03-2025,cartão,trocou de cor depois
+Patrícia Nunes,Colar Pérolas,1,120.0,devolvido,05-03-2025,Pix,
+Isabela Pereira,Colar Pérolas,1,120.0,pago - confirmado,06/02/2025,cartão,ver com Bia
+Pedro Henrique,Kit Pulseiras (3un),1,R$ 95.00,OK,4/4/2025,Cartão,
+André Barbosa,Conjunto Colar+Brinco,2,"R$297,00",⏳,23 Mar 2025,Cartão,
+Thiago Ferreira,Anel Ajustável Ouro,1,55,postado,01/04/2025,pix nubank,
+Bianca Dias,Colar Corrente Grossa,1,"110,00",falta pagar,09-01-2025,Pix,
+Vinícius Correia,Kit Pulseiras (3un),1,"95,00",ENVIADO,15/3/2025,,mandou msg no zap
+Rafael Costa,Colar Pérolas,2,"R$ 240,00",PENDENTE,11/02/25,pix,trocou de cor depois
+Amanda Nascimento,Anel Ajustável Ouro,2,110.0,devolvido,24/02/2025,cartao,
+Fernanda Rocha,Choker Veludo,1,"R$ 35,00",OK,01/04,pix nubank,???
+Pedro Henrique,Tornozeleira Prata,1,"R$ 42,00",pago ,17/03,cartão,reclamou da demora
+Patrícia Nunes,Broche Vintage,2,"R$ 96,00",pago,19/01/2025,Cartão,instagram: @patrícia
+Pedro Henrique,Broche Vintage,1,R$ 48.00,falta pagar,21/02,,presente - embrulhar
+Vinícius Correia,Pulseira Couro,2,"130,00",PENDENTE,08/03/25,PIX,indicação da Maria
+Maria Silva,Colar Pérolas,1,GRÁTIS,pago,01/03/2025,,brinde VIP
+Patrícia Nunes,Tornozeleira Prata,3,"126,00",CANCELADO,17/01/2025,,reclamou da demora
+Larissa Mendes,Colar Pérolas,1,R$ 120.00,pago!,04/03/2025,pix nubank,reclamou da demora
+João Pedro,Conjunto Colar+Brinco,1,"R$165,00",Pago via PIX,18/3/2025,cartão,endereço: ver no zap
+Pedro Henrique,Brinco Gota Cristal,2,"156,00",PAGO,22/3/2025,Pix,vai retirar pessoalmente
+Rafael Costa,Brinco Argola Prata,1,"R$ 40,50",pago!,06/01/25,PIX - Banco Inter,ligar segunda
+Fernanda Rocha,Colar Dourado Lua,1,"89,90",aguardando,19 Jan 2025,dinheiro,
+Isabela Pereira,Brinco Argola Prata,1,45,Pago via PIX,24/03/2025,Cartão,trocou de cor depois
+João Pedro,Tornozeleira Prata,2,"84,00",✅,18 Jan 2025,pix,
+Camila Santos,Brinco Argola Prata,1,R$ 45.00,pg,20-03-2025,transferência,frete grátis combinado
+Patrícia Nunes,Choker Veludo,1,31.5,Pago via PIX,04/04/25,cartão,presente - embrulhar
+Bruno Carvalho,Brinco Gota Cristal,2,"156,00",OK,08-04-2025,cartao,comprou pelo stories
+Camila Santos,Colar Corrente Grossa,2,R$ 198.00,Pago,15/01/2025,cartao,
+Isabela Pereira,Choker Veludo,1,R$ 35.00,OK,26-02-2025,PIX,entrega urgente
+Thiago Ferreira,Brinco Argola Prata,1,"45,00",Pago,30/03/2025,cartao,vai retirar pessoalmente
+Amanda Nascimento,Colar Pérolas,1,120,devolvido,17 Mar 2025,PIX - Banco Inter,comprou pelo stories
+Maria Silva,Brinco Pressão Strass,2,"56,00",pago - confirmado,08/02/2025,Cartão,ligar segunda
+Rafael Costa,Presilha Cabelo Luxo,1,R$ 55.00,pago,13/01/25,pix,2a compra
+Larissa Mendes,Kit Pulseiras (3un),1,"R$ 95,00",⏳,13/02/2025,PIX - Banco Inter,frete grátis combinado
+Camila Santos,Pulseira Couro,2,117.0,OK,2025-01-15,dinheiro,frete grátis combinado
+Fernanda Rocha,Anel Ajustável Ouro,2,110,pago ,01-03-2025,dinheiro,mandou msg no zap
+João Pedro,Anel Ajustável Ouro,1,"55,00",pago!,05-01-2025,Pix,
+Mariana Souza,Brinco Argola Prata,1,R$ 45.00,Pago via PIX,27/1/2025,cartão,mandou msg no zap
+André Barbosa,Conjunto Colar+Brinco,1,R$ 165.00,✅,2025-01-10,pix,ligar segunda
+Isabela Pereira,Kit Pulseiras (3un),2,190.0,pg,19/1/2025,Pix,frete grátis combinado
+Letícia Moreira,Broche Vintage,1,"R$ 48,00",pago ,2025-01-18,transferência,mandou msg no zap
+Gustavo Almeida,Anel Solitário,1,"R$150,00",Pago,26/1/2025,,mandou msg no zap
+Thiago Ferreira,Brinco Gota Cristal,2,"R$156,00",PAGO,23 Jan 2025,Cartão,
+Camila Santos,Conjunto Colar+Brinco,2,297,pago ,26 Mar 2025,PIX - Banco Inter,trocou de cor depois
+Bianca Dias,Colar Corrente Grossa,3,330.0,✅,26/03,pix,instagram: @bianca
+Gustavo Almeida,Conjunto Colar+Brinco,1,"R$ 148,50",✅,10-03-2025,dinheiro,
+Gustavo Almeida,Brinco Argola Prata,1,R$ 45.00,aguardando pix,16 Jan 2025,transferência,trocou de cor depois
+Gustavo Almeida,Brinco Argola Prata,1,R$ 45.00,aguardando pix,16 Jan 2025,transferência,trocou de cor depois
+Vinícius Correia,Broche Vintage,1,R$ 48.00,PENDENTE,19/03/25,PIX - Banco Inter,instagram: @vinícius
+João Pedro,Tornozeleira Prata,1,"R$42,00",cancelou,17/02/2025,,reclamou da demora
+Pedro Henrique,Anel Solitário,1,150.0,PENDENTE,2025-03-12,cartao,entrega urgente
+Amanda Nascimento,Brinco Gota Cristal,1,R$ 70.20,pendente,26/03,cartao,
+Larissa Mendes,Colar Pérolas,1,120,ENVIADO,23/03/25,pix,endereço: ver no zap
+Thiago Ferreira,Colar Pérolas,3,360.0,Pago,24/02,Cartão,vai retirar pessoalmente
+Mariana Souza,Presilha Cabelo Luxo,1,55.0,cancelou,02 Apr 2025,pix nubank,comprou pelo stories
+Thiago Ferreira,Colar Dourado Lua,1,"R$89,90",✅,01/02/25,cartão,
+Ana Beatriz,Colar Pérolas,2,"240,00",saiu hj,15/3/2025,PIX,comprou pelo stories
+Mateus Gomes,Pulseira Couro,1,65.0,saiu hj,28/01/2025,Pix,2a compra
+Bruno Carvalho,Brinco Gota Cristal,1,R$ 78.00,⏳,02/03/25,dinheiro,
+Gustavo Almeida,Conjunto Colar+Brinco,2,"330,00",pago ,29/1/2025,dinheiro,trocou de cor depois
+Larissa Mendes,Choker Veludo,1,35,Enviado,2025-01-30,Cartão,
+Thiago Ferreira,Choker Veludo,2,"R$70,00",ENVIADO,12-03-2025,pix,
+Patrícia Nunes,Broche Vintage,1,"R$ 48,00",Cancelado,2025-01-16,dinheiro,???
+João Pedro,Kit Pulseiras (3un),1,95,pago,15/01,cartao,
+Mariana Souza,Conjunto Colar+Brinco,1,R$ 148.50,Pendente,06/03/2025,dinheiro,trocou de cor depois
+Ana Beatriz,Colar Dourado Lua,1,"R$ 89,90",devolvido,16/3/2025,,presente - embrulhar
+Gustavo Almeida,Anel Ajustável Ouro,1,"R$ 49,50",aguardando pix,27/2/2025,dinheiro,
+Diego Ribeiro,Brinco Pressão Strass,1,"R$ 28,00",PAGO,19 Mar 2025,Cartão,presente - embrulhar
+Thiago Ferreira,Anel Ajustável Ouro,1,R$ 55.00,pg,31 Mar 2025,pix,mandou msg no zap
+Carolina Martins,Choker Veludo,1,"R$ 35,00",PENDENTE,10-01-2025,Cartão,2a compra
+Ana Beatriz,Brinco Gota Cristal,1,"R$ 78,00",postado,18-01-2025,cartao,
+Felipe Araújo,Brinco Gota Cristal,2,"R$156,00",✅,02/04/2025,pix nubank,
+Letícia Moreira,Conjunto Colar+Brinco,2,"297,00",pago!,30 Jan 2025,PIX,ligar segunda
+Larissa Mendes,Presilha Cabelo Luxo,1,"55,00",pg,28-03-2025,PIX,reclamou da demora
+Lucas Oliveira,Conjunto Colar+Brinco,1,165.0,enviado correios,02/03,cartao,
+Diego Ribeiro,Brinco Gota Cristal,2,"R$156,00",pendente,15 Jan 2025,transferência,frete grátis combinado

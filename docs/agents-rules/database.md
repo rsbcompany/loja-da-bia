@@ -13,16 +13,12 @@ O app não tem servidor. Todos os dados vivem em **um único documento `AppData`
 no IndexedDB (`src/lib/bia/store.tsx`), semeado uma vez a partir de
 `src/data/seed.json`.
 
-### A0. Dados reais não entram no repositório público
+### A0. Dados versionados = planilha original
 
 `tools/pedidos.csv`, `src/data/original.csv` e `src/data/seed.json` versionados
-contêm apenas dados sintéticos de demonstração. As cópias reais ficam em
-`private-data/originals/`, ignorada pelo Git. O `.gitignore` evita publicação
-acidental, mas **não criptografa** os arquivos nem substitui controle de acesso.
-
-Não importe dados reais para o seed público nem para `public/`/bundles. Para
-uso compartilhado ou deploy, configure uma API autenticada ligada a um banco
-privado antes de carregar registros reais; a aplicação atual continua local-first.
+contêm os pedidos da planilha original — a Bia os classifica como dados
+fictícios de demonstração. Cópias de segurança ficam em
+`private-data/originals/`, ignorada pelo Git.
 
 ### A1. Toda leitura/escrita é validada antes de persistir
 
