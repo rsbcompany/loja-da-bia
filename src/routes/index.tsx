@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BarChart3, ClipboardList, MoreHorizontal, Plus, ShoppingBag, Users } from "lucide-react";
 import { StoreProvider, useStore } from "@/lib/bia/store";
 import type { Order } from "@/lib/bia/types";
+import { useTheme, type ThemeChoice } from "@/hooks/use-theme";
 import { OrderEditor } from "@/components/bia/OrderEditor";
 import {
   Backup,
@@ -13,6 +14,7 @@ import {
   Revisao,
   Sobre,
 } from "@/components/bia/screens";
+import { Chip } from "@/components/bia/ui";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
@@ -85,6 +87,7 @@ function App() {
         {tab === "resumo" && <Resumo />}
         {tab === "mais" && (
           <>
+            <AppearanceRow />
             <div className="mb-4 flex gap-2">
               {(["revisao", "backup", "sobre"] as Mais[]).map((m) => (
                 <button
@@ -92,7 +95,7 @@ function App() {
                   onClick={() => setMais(m)}
                   className={cn(
                     "min-h-10 flex-1 rounded-md text-sm font-semibold",
-                    mais === m ? "bg-foreground text-background" : "bg-white/50 backdrop-blur-md",
+                    mais === m ? "bg-foreground text-background" : "glass-control",
                   )}
                 >
                   {{ revisao: "Revisão", backup: "Backup", sobre: "Sobre" }[m]}
@@ -113,7 +116,7 @@ function App() {
         <Plus className="size-8" />
       </button>
       <nav className="fixed inset-x-0 bottom-0 z-40">
-        <div className="mx-auto flex max-w-lg border-t border-white/40 bg-white/60 backdrop-blur-2xl shadow-[0_-4px_24px_oklch(0.5_0.05_250/0.08)]">
+        <div className="mx-auto flex max-w-lg border-t glass-bar shadow-[0_-4px_24px_oklch(0.5_0.05_250/0.08)]">
           {nav.map(({ id, label, Icon }) => (
             <button
               key={id}
@@ -131,6 +134,28 @@ function App() {
         </div>
       </nav>
       <OrderEditor open={!!editing} order={editing?.o} onClose={() => setEditing(null)} />
+    </div>
+  );
+}
+
+const APPEARANCES: { id: ThemeChoice; label: string }[] = [
+  { id: "system", label: "Sistema" },
+  { id: "light", label: "Claro" },
+  { id: "dark", label: "Escuro" },
+];
+
+function AppearanceRow() {
+  const { choice, setTheme } = useTheme();
+  return (
+    <div className="mb-4">
+      <p className="mb-1 text-xs font-medium text-muted-foreground">Aparência</p>
+      <div className="flex gap-2">
+        {APPEARANCES.map(({ id, label }) => (
+          <Chip key={id} active={choice === id} onClick={() => setTheme(id)}>
+            {label}
+          </Chip>
+        ))}
+      </div>
     </div>
   );
 }

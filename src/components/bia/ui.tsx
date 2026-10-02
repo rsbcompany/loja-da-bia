@@ -23,9 +23,7 @@ export function Chip({
       onClick={onClick}
       className={cn(
         "min-h-10 shrink-0 rounded-full border px-4 text-sm font-medium transition-colors",
-        active
-          ? "border-foreground bg-foreground text-background"
-          : "border-white/50 bg-white/55 backdrop-blur-xl text-foreground",
+        active ? "border-foreground bg-foreground text-background" : "glass-card text-foreground",
         className,
       )}
     >
@@ -48,8 +46,8 @@ const STATUS_STYLE: Record<Status, string> = {
   pendente: "bg-warning text-warning-foreground",
   pago: "bg-accent text-accent-foreground",
   enviado: "bg-secondary text-secondary-foreground",
-  cancelado: "bg-white/50 text-muted-foreground line-through",
-  devolvido: "bg-white/50 text-muted-foreground",
+  cancelado: "glass-control text-muted-foreground line-through",
+  devolvido: "glass-control text-muted-foreground",
 };
 export const statusLabel = (s: Status) => STATUSES.find((x) => x.id === s)?.label ?? s;
 export function StatusBadge({ s }: { s: Status }) {
@@ -85,17 +83,14 @@ export function Sheet({
   }, [open, onClose]);
   if (!open) return null;
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/25"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/30" onClick={onClose}>
       <div
         ref={panel}
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className="flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl bg-white/75 backdrop-blur-2xl focus:outline-none"
+        className="flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl glass-panel focus:outline-none"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex shrink-0 items-center justify-between px-4 pb-3 pt-5">
@@ -103,7 +98,7 @@ export function Sheet({
           <button
             aria-label="Fechar"
             onClick={onClose}
-            className="grid size-10 place-items-center rounded-full bg-white/50 backdrop-blur-md"
+            className="grid size-10 place-items-center rounded-full glass-control"
           >
             <X className="size-5" />
           </button>
@@ -112,7 +107,7 @@ export function Sheet({
           {children}
         </div>
         {footer && (
-          <div className="shrink-0 border-t border-white/50 bg-white/40 backdrop-blur-xl px-4 pt-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)]">
+          <div className="shrink-0 border-t glass-control px-4 pt-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)]">
             {footer}
           </div>
         )}
@@ -123,7 +118,7 @@ export function Sheet({
 
 export function Empty({ children }: { children: ReactNode }) {
   return (
-    <p className="rounded-lg border border-dashed border-white/50 p-6 text-center text-sm text-muted-foreground">
+    <p className="rounded-lg border border-dashed p-6 text-center text-sm text-muted-foreground">
       {children}
     </p>
   );
@@ -140,7 +135,7 @@ export function OrderCard({
 }) {
   const flags = openFlags(o);
   return (
-    <div className="rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-3.5">
+    <div className="rounded-lg border glass-card p-3.5">
       <button className="w-full text-left" onClick={onOpen}>
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
@@ -191,7 +186,7 @@ export function Btn({
       className={cn(
         "min-h-11 rounded-md px-4 text-sm font-semibold",
         variant === "primary" && "bg-primary text-primary-foreground",
-        variant === "ghost" && "border border-white/50 bg-white/55 backdrop-blur-xl",
+        variant === "ghost" && "border glass-card",
         variant === "danger" && "bg-destructive text-destructive-foreground",
         className,
       )}
@@ -202,7 +197,7 @@ export function Btn({
 }
 
 export const inputCls =
-  "w-full min-h-12 rounded-md border border-input bg-white/55 backdrop-blur-xl px-3 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring/30";
+  "w-full min-h-12 rounded-md border border-input glass-card px-3 text-base outline-none focus:border-ring focus:ring-2 focus:ring-ring/30";
 export function Field({
   label,
   id,

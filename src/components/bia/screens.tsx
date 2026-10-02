@@ -288,10 +288,7 @@ export function Clientes({ onOpen }: { onOpen: Open }) {
         {list.map((c) => {
           const s = stats.get(c.key);
           return (
-            <div
-              key={c.key}
-              className="flex items-center gap-3 rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-4"
-            >
+            <div key={c.key} className="flex items-center gap-3 rounded-lg border glass-card p-4">
               <button className="min-w-0 flex-1 text-left" onClick={() => setEdit(c)}>
                 <p className="truncate font-semibold">{c.nome}</p>
                 <p className="text-sm text-muted-foreground">
@@ -461,7 +458,7 @@ export function Resumo() {
   return (
     <div>
       <H sub="Faturamento = pedidos pagos + enviados">Resumo</H>
-      <div className="mb-4 rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-4">
+      <div className="mb-4 rounded-lg border glass-card p-4">
         <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide capitalize">
           {fmtMonth(currentYm)}
         </p>
@@ -475,15 +472,12 @@ export function Resumo() {
       <div className="space-y-3">
         {months.length === 0 && <Empty>Sem pedidos ainda.</Empty>}
         {months.map(([ym, s]) => (
-          <div
-            key={ym}
-            className="rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-4"
-          >
+          <div key={ym} className="rounded-lg border glass-card p-4">
             <div className="flex items-baseline justify-between">
               <p className="text-base font-semibold capitalize">{fmtMonth(ym)}</p>
               <p className="text-lg font-semibold tabular-nums">{fmtBRL(s.rec)}</p>
             </div>
-            <div className="my-2 h-2 rounded-full bg-white/50 backdrop-blur-md">
+            <div className="my-2 h-2 rounded-full glass-control">
               <div
                 className="h-2 rounded-full bg-primary"
                 style={{ width: `${(s.rec / max) * 100}%` }}
@@ -558,7 +552,7 @@ export function Revisao({ onOpen }: { onOpen: Open }) {
           </p>
           {dups.length === 0 && <Empty>Nenhum possível duplicado.</Empty>}
           {dups.map(([k, l]) => (
-            <div key={k} className="space-y-2 rounded-lg bg-white/50 backdrop-blur-md p-3">
+            <div key={k} className="space-y-2 rounded-lg glass-control p-3">
               {l.map((o) => (
                 <OrderCard
                   key={o.id}
@@ -732,7 +726,7 @@ export function Backup() {
       >
         Backup & dados
       </H>
-      <div className="rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-4 text-sm">
+      <div className="rounded-lg border glass-card p-4 text-sm">
         <p>
           {counts.ativos} ativos · {counts.arq} arquivados · {counts.exc} excluídos
         </p>
@@ -839,7 +833,7 @@ export function Sobre() {
   return (
     <div className="space-y-4 text-sm leading-relaxed">
       <H>Sobre o app</H>
-      <section className="rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-4">
+      <section className="rounded-lg border glass-card p-4">
         <p className="mb-1 font-semibold">Instalar no celular</p>
         <p>
           <b>iPhone:</b> abra no Safari → Compartilhar → “Adicionar à Tela de Início”.
@@ -848,14 +842,14 @@ export function Sobre() {
           <b>Android:</b> no Chrome → menu ⋮ → “Instalar app” ou “Adicionar à tela inicial”.
         </p>
       </section>
-      <section className="rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-4">
+      <section className="rounded-lg border glass-card p-4">
         <p className="mb-1 font-semibold">Onde ficam seus dados</p>
         <p>
           Tudo fica só neste aparelho e funciona sem internet. Limpar os dados do navegador ou
           desinstalar o app apaga tudo — por isso faça backup toda semana (o app te lembra).
         </p>
       </section>
-      <section className="rounded-lg border border-white/50 bg-white/55 backdrop-blur-xl p-4">
+      <section className="rounded-lg border glass-card p-4">
         <p className="mb-1 font-semibold">O que foi arrumado da planilha</p>
         <p>
           193 pedidos importados: 22 grafias de status viraram 5, datas em 6 formatos padronizadas,

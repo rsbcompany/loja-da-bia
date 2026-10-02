@@ -160,7 +160,7 @@ function AmountFields({
           <button
             type="button"
             aria-label="Menos"
-            className="grid size-12 place-items-center rounded-md bg-white/50 backdrop-blur-md"
+            className="grid size-12 place-items-center rounded-md glass-control"
             onClick={() => setQtd(form.qtd - 1)}
           >
             <Minus />
@@ -169,7 +169,7 @@ function AmountFields({
           <button
             type="button"
             aria-label="Mais"
-            className="grid size-12 place-items-center rounded-md bg-white/50 backdrop-blur-md"
+            className="grid size-12 place-items-center rounded-md glass-control"
             onClick={() => setQtd(form.qtd + 1)}
           >
             <Plus />
@@ -314,7 +314,7 @@ function EditorMeta({ order, onClose }: { order: Order; onClose: () => void }) {
 function OriginNote({ order }: { order: Order }) {
   if (!order.linhaOrigem) return null;
   return (
-    <div className="rounded-lg bg-white/50 backdrop-blur-md p-4 text-sm">
+    <div className="rounded-lg glass-control p-4 text-sm">
       <p className="mb-2 font-semibold">Original da planilha (linha {order.linhaOrigem})</p>
       <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-muted-foreground">
         <dt>Cliente</dt>
