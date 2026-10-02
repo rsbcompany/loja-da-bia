@@ -45,7 +45,7 @@ export const LP_STEPS: LpStep[] = [
     id: "paga",
     screen: "pendencias",
     title: "A cobrança sai com um toque",
-    copy: "De “Falta cobrar” você manda a mensagem de cobrança no WhatsApp sem digitar nada. Quando a Maria pagar, toque em “✓ Pago” — dá para desfazer se errar.",
+    copy: "De “Falta cobrar” você cobra no WhatsApp ou no Direct — o app monta a mensagem por você (no Direct, copia e abre o perfil). Quando pagar, toque em “✓ Pago” — dá para desfazer se errar.",
     status: "pago",
     tab: "aba Pendências",
     track: 1,

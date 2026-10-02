@@ -25,6 +25,7 @@ export function MiniPendencias({ status }: { status: LpStatus }) {
           {charging ? (
             <>
               <span className={ACTION_PRIMARY}>Cobrar no WhatsApp</span>
+              <span className={ACTION_PRIMARY}>Cobrar no Direct</span>
               <span className={ACTION_GHOST}>✓ Pago</span>
             </>
           ) : (

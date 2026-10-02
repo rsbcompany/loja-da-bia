@@ -32,6 +32,7 @@ describe("LP route", () => {
     renderAt("/lp");
 
     expect(await screen.findByText("A cobrança sai com um toque")).toBeInTheDocument();
+    expect(screen.getAllByText("Cobrar no Direct").length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText("O mês fecha sozinho")).toBeInTheDocument();
     expect(screen.getAllByRole("list", { name: "Etapas do pedido" }).length).toBe(2);
   });
