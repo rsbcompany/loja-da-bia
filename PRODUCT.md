@@ -63,7 +63,8 @@ expor dados de clientes.
 
 ## Evidence on Hand
 
-- `README.md` e `roadmap.md` — funcionalidades, fases 0–4, stack.
+- `README.md` e `roadmap.md` — funcionalidades, fase 0 e fases 1–3 (contato
+  rápido entregue), stack.
 - `tools/pedidos.csv` → `src/data/seed.json` (dados sintéticos de
   demonstração, gerados por `tools/build_seed.py`).
 - `private-data/originals/` — dados reais, ignorados pelo Git (não podem ser

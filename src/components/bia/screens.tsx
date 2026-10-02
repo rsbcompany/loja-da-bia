@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { Instagram, MessageCircle, Search } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "@tanstack/react-router";
 import { useStore, validateBackup } from "@/lib/bia/store";
 import { STATUSES, type AppData, type Client, type Order, type Status } from "@/lib/bia/types";
 import {
@@ -858,6 +859,16 @@ export function Sobre() {
         <p>
           <b>Android:</b> no Chrome → menu ⋮ → “Instalar app” ou “Adicionar à tela inicial”.
         </p>
+      </section>
+      <section className="rounded-lg border glass-card p-4">
+        <p className="mb-1 font-semibold">Como o app funciona</p>
+        <p>Acompanhe a vida de um pedido no app, de ponta a ponta.</p>
+        <Link
+          to="/lp"
+          className="mt-2 inline-flex min-h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground"
+        >
+          Ver a página “Como funciona”
+        </Link>
       </section>
       <section className="rounded-lg border glass-card p-4">
         <p className="mb-1 font-semibold">Onde ficam seus dados</p>

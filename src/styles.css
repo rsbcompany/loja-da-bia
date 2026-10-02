@@ -119,6 +119,10 @@
     background-attachment: fixed;
     min-height: 100vh;
   }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--primary) 25%, transparent);
+  }
 }
 
 @layer utilities {

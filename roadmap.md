@@ -1,5 +1,11 @@
 # Roadmap
 
+## Entregue
+
+- **Contato rápido (antiga Fase 1):** botões de WhatsApp na linha do pedido e
+  na cobrança ("Cobrar no WhatsApp"), máscara/validação de telefone, envio com
+  código de rastreio e confirmação com desfazer.
+
 ## Fase 0: Nova Base de Dados (Backend Autenticado)
 
 Foco: colocar os dados reais em um banco privado, atrás de um backend
@@ -27,24 +33,7 @@ reais não podem ficar expostos em repositório público ou bundle.
   banco privado via `bun run db:import`.
 - Migrar o app do IndexedDB para a API autenticada, mantendo as telas atuais.
 
-## Fase 1: Higienização e Contato Rápido (Quick Win no App)
-
-Foco: agilizar o contato diário e corrigir a base de clientes sem sair da tela
-de pedidos.
-
-### Validação e Máscara de Telefone
-
-- Máscara automática padrão Brasil `(XX) XXXXX-XXXX` e formato internacional
-  (E.164) para garantir links do WhatsApp válidos.
-
-### Atalho de WhatsApp na Linha do Pedido
-
-- Botão direto ao lado do nome do cliente:
-  - Se tem telefone cadastrado: abre o WhatsApp com um toque.
-  - Se não tem telefone: abre um modal rápido para preencher o número ali
-    mesmo, atualizando o cadastro sem trocar de tela.
-
-## Fase 2: Assistente de IA para Entrada Rápida (No próprio App)
+## Fase 1: Assistente de IA para Entrada Rápida (No próprio App)
 
 Foco: tirar o trabalho braçal de digitar itens, preços e observações, com custo
 zero de API externa e sem risco de banimento.
@@ -64,7 +53,7 @@ zero de API externa e sem risco de banimento.
 - O formulário é pré-preenchido automaticamente para a Bia só bater o olho e
   salvar.
 
-## Fase 3: Captura Automática em Segundo Plano (Webhooks)
+## Fase 2: Captura Automática em Segundo Plano (Webhooks)
 
 Foco: os pedidos caírem sozinhos no app sem a Bia precisar copiar e colar nada.
 
@@ -83,7 +72,7 @@ Foco: os pedidos caírem sozinhos no app sem a Bia precisar copiar e colar nada.
 - A Bia revisa a lista de pendentes e aprova os pedidos legítimos com um toque,
   disparando a confirmação para a cliente.
 
-## Fase 4: Agente Copiloto Ativo (Atendimento Autônomo)
+## Fase 3: Agente Copiloto Ativo (Atendimento Autônomo)
 
 Foco: o agente responder os clientes e tirar dúvidas rotineiras antes de
 envolver a Bia.
