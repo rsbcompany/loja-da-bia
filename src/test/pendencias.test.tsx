@@ -16,7 +16,18 @@ vi.mock("sonner", () => ({
   toast: Object.assign(vi.fn(), { success: vi.fn(), error: vi.fn(), warning: vi.fn() }),
 }));
 
+const fixtureExtras: { orders: Order[]; clients: AppData["clients"] } = { orders: [], clients: [] };
+
 function pendenciasFixture(): AppData {
+  const base = pendenciasBaseFixture();
+  return {
+    ...base,
+    orders: [...base.orders, ...fixtureExtras.orders],
+    clients: [...base.clients, ...fixtureExtras.clients],
+  };
+}
+
+function pendenciasBaseFixture(): AppData {
   return {
     version: 1,
     orders: [
@@ -175,6 +186,8 @@ describe("Pendencias cobranca", () => {
     updateOrder.mockClear();
     vi.mocked(toast.success).mockClear();
     vi.restoreAllMocks();
+    fixtureExtras.orders = [];
+    fixtureExtras.clients = [];
   });
 
   async function openCobrarQueue() {
@@ -207,10 +220,71 @@ describe("Pendencias cobranca", () => {
     expect(message).toContain("×1");
   });
 
-  it("routes missing numbers to the client registration sheet", async () => {
+  it("offers the Direct charge for Instagram-only clients", async () => {
+    fixtureExtras.orders = [
+      orderFixture({
+        id: "n4",
+        status: "pendente",
+        clienteKey: "cliente 03",
+        cliente: "Cliente 03",
+        valor: 80,
+      }),
+    ];
+    fixtureExtras.clients = [
+      {
+        key: "cliente 03",
+        nome: "Cliente 03",
+        variantes: ["Cliente 03"],
+        whatsapp: "",
+        instagram: "@cliente03",
+        enderecos: [],
+        notas: "",
+      },
+    ];
+    await openCobrarQueue();
+
+    expect(screen.getAllByRole("button", { name: "Cobrar no Direct" })).toHaveLength(1);
+    expect(screen.getByRole("button", { name: "Cadastrar contato" })).not.toBeNull();
+  });
+
+  it("copies the charge message and opens the Direct profile", async () => {
+    fixtureExtras.orders = [
+      orderFixture({
+        id: "n4",
+        status: "pendente",
+        clienteKey: "cliente 03",
+        cliente: "Cliente 03",
+        valor: 80,
+      }),
+    ];
+    fixtureExtras.clients = [
+      {
+        key: "cliente 03",
+        nome: "Cliente 03",
+        variantes: ["Cliente 03"],
+        whatsapp: "",
+        instagram: "@cliente03",
+        enderecos: [],
+        notas: "",
+      },
+    ];
+    const openSpy = vi.spyOn(window, "open").mockReturnValue(null);
     const user = await openCobrarQueue();
 
-    await user.click(screen.getByRole("button", { name: "Cadastrar número" }));
+    const directBtn = screen.getAllByRole("button", { name: "Cobrar no Direct" }).at(0);
+    if (!directBtn) throw new Error("direct button missing");
+    await user.click(directBtn);
+
+    expect(openSpy.mock.calls[0]?.[0]).toBe("https://www.instagram.com/cliente03");
+    expect(vi.mocked(toast.success)).toHaveBeenCalledWith(
+      "Mensagem de cobrança copiada — cole no Direct",
+    );
+  });
+
+  it("routes missing contacts to the client registration sheet", async () => {
+    const user = await openCobrarQueue();
+
+    await user.click(screen.getByRole("button", { name: "Cadastrar contato" }));
 
     expect(screen.getByRole("dialog", { name: "Cliente 02" })).not.toBeNull();
     expect(screen.getByLabelText("WhatsApp")).not.toBeNull();

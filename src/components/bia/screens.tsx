@@ -42,6 +42,14 @@ function chargeOnWhatsApp(o: Order, client: Client) {
   if (link) window.open(link, "_blank", "noopener");
 }
 
+function chargeOnDirect(o: Order, client: Client) {
+  const link = igLink(client.instagram);
+  if (!link) return;
+  navigator.clipboard?.writeText(buildCobrancaMessage(o)).catch(() => undefined);
+  toast.success("Mensagem de cobrança copiada — cole no Direct");
+  window.open(link, "_blank", "noopener");
+}
+
 /* ---------------- Pendências ---------------- */
 export function Pendencias({ onOpen }: { onOpen: Open }) {
   const { data, updateOrder } = useStore();
@@ -133,18 +141,27 @@ function cobrancaActions(x: {
   updateOrder: (id: string, patch: Partial<Order>) => void;
   onRegister: (c: Client) => void;
 }) {
-  if (!x.client.whatsapp) {
+  const hasWhatsApp = Boolean(x.client.whatsapp);
+  const hasDirect = Boolean(x.client.instagram);
+  if (!hasWhatsApp && !hasDirect) {
     return (
       <Btn className="flex-1" onClick={() => x.onRegister(x.client)}>
-        Cadastrar número
+        Cadastrar contato
       </Btn>
     );
   }
   return (
     <>
-      <Btn className="flex-1" onClick={() => chargeOnWhatsApp(x.o, x.client)}>
-        Cobrar no WhatsApp
-      </Btn>
+      {hasWhatsApp && (
+        <Btn className="flex-1" onClick={() => chargeOnWhatsApp(x.o, x.client)}>
+          Cobrar no WhatsApp
+        </Btn>
+      )}
+      {hasDirect && (
+        <Btn className="flex-1" onClick={() => chargeOnDirect(x.o, x.client)}>
+          Cobrar no Direct
+        </Btn>
+      )}
       <Btn variant="ghost" onClick={() => markPaid(x.o, x.updateOrder)}>
         ✓ Pago
       </Btn>
