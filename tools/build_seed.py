@@ -92,10 +92,15 @@ def display(ck):
     vs = names[ck]
     best = max(vs, key=lambda n: (n != n.upper() and n != n.lower(), vs[n]))
     return best
+# Demo WhatsApp number provided by the owner (test the charge links)
+DEMO_WHATSAPP = "51 99382 7822"
+DEMO_WHATSAPP_CLIENTS = 4
+
 clients = []
-for ck, vs in names.items():
+for i, (ck, vs) in enumerate(names.items()):
     if ck == "teste": continue
-    clients.append(dict(key=ck, nome=display(ck), variantes=sorted(vs), whatsapp="", instagram="", enderecos=[], notas=""))
+    wa = DEMO_WHATSAPP if i < DEMO_WHATSAPP_CLIENTS else ""
+    clients.append(dict(key=ck, nome=display(ck), variantes=sorted(vs), whatsapp=wa, instagram="", enderecos=[], notas=""))
 for o in orders:
     if o["clienteKey"] in names: o["cliente"] = display(o["clienteKey"])
     m = re.search(r"instagram:\s*@(\S+)", o["obs"])

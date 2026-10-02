@@ -11,7 +11,12 @@ export const STATUSES: { id: Status; label: string }[] = [
 export const PGTOS = ["Pix", "Cartão", "Dinheiro", "Transferência"];
 export const ENTREGAS: Entrega[] = ["Retirada", "Correios", "Entrega em mãos"];
 
-export interface HistEntry { ts: string; campo: string; de: string; para: string }
+export interface HistEntry {
+  ts: string;
+  campo: string;
+  de: string;
+  para: string;
+}
 
 export interface Order {
   id: string;
@@ -26,6 +31,7 @@ export interface Order {
   obs: string;
   detalhe: string;
   entrega: Entrega;
+  rastreio?: string;
   valorOriginal?: string;
   statusOriginal?: string;
   dataOriginal?: string;
@@ -51,7 +57,10 @@ export interface Client {
   notas: string;
 }
 
-export interface CatalogItem { nome: string; preco: number }
+export interface CatalogItem {
+  nome: string;
+  preco: number;
+}
 
 export interface Meta {
   importedAt: string;

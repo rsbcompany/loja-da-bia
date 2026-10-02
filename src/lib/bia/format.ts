@@ -25,20 +25,38 @@ export function clientKey(s: string) {
     .replace(/\s+/g, " ");
 }
 
-export function waLink(phone: string) {
+function waDigits(phone: string) {
   let d = phone.replace(/\D/g, "");
   if (!d) return "";
   if (d.startsWith("0")) d = d.replace(/^0+/, "");
   if (d.length === 10 || d.length === 11) d = "55" + d;
-  return `https://wa.me/${d}`;
+  return d;
+}
+export function waLink(phone: string, message = "") {
+  const digits = waDigits(phone);
+  if (!digits) return "";
+  return message
+    ? `https://wa.me/${digits}?text=${encodeURIComponent(message)}`
+    : `https://wa.me/${digits}`;
+}
+export function buildCobrancaMessage(o: Order) {
+  return `Oi ${o.cliente}! Seu pedido (${o.produto} ×${o.qtd}) ficou ${fmtBRL(o.valor)}. Pode confirmar o pagamento?`;
+}
+
+export function formatOrderCount(n: number) {
+  return n === 1 ? "1 pedido" : `${n} pedidos`;
 }
 export function igLink(handle: string) {
-  const h = handle.trim().replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//, "");
+  const h = handle
+    .trim()
+    .replace(/^@/, "")
+    .replace(/^https?:\/\/(www\.)?instagram\.com\//, "");
   return h ? `https://www.instagram.com/${encodeURIComponent(h)}` : "";
 }
 
 export const isActive = (o: Order) => !o.arquivado && !o.excluido;
-export const openFlags = (o: Order) => o.flags.filter((f) => !(o.flagsResolvidas ?? []).includes(f));
+export const openFlags = (o: Order) =>
+  o.flags.filter((f) => !(o.flagsResolvidas ?? []).includes(f));
 
 export function download(name: string, content: string, type: string) {
   const blob = new Blob([content], { type });
@@ -49,11 +67,38 @@ export function download(name: string, content: string, type: string) {
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
-const cell = (s: string | number) => String(s ?? "").replace(/[;\r\n]+/g, " ").trim();
+const cell = (s: string | number) =>
+  String(s ?? "")
+    .replace(/[;\r\n]+/g, " ")
+    .trim();
 export function toCSV(orders: Order[]) {
-  const head = ["Nome do cliente", "produto", "Qtd", "VALOR", "Status do Pedido", "Data", "Forma pgto", "Observações", "Detalhe", "Entrega"];
+  const head = [
+    "Nome do cliente",
+    "produto",
+    "Qtd",
+    "VALOR",
+    "Status do Pedido",
+    "Data",
+    "Forma pgto",
+    "Observações",
+    "Detalhe",
+    "Entrega",
+  ];
   const rows = orders.map((o) =>
-    [o.cliente, o.produto, o.qtd, o.valor.toFixed(2).replace(".", ","), o.status, fmtDate(o.data), o.pgto, o.obs, o.detalhe, o.entrega].map(cell).join(";"),
+    [
+      o.cliente,
+      o.produto,
+      o.qtd,
+      o.valor.toFixed(2).replace(".", ","),
+      o.status,
+      fmtDate(o.data),
+      o.pgto,
+      o.obs,
+      o.detalhe,
+      o.entrega,
+    ]
+      .map(cell)
+      .join(";"),
   );
   return "\uFEFF" + [head.join(";"), ...rows].join("\n");
 }
