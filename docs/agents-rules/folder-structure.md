@@ -14,7 +14,7 @@ src/
 │   └── bia/           # componentes de domínio (OrderEditor, screens...)
 ├── hooks/             # hooks customizados, sempre com prefixo use-
 ├── types/             # 1 type/interface por arquivo (ver code-standards §8)
-├── services/          # acesso a dados do cliente: IndexedDB, APIs, export/import
+├── services/          # camada RPC/HTTP: createServerFn → server/services
 ├── pages/             # camada de páginas  →  na prática é src/routes/ (ver abaixo)
 ├── lib/               # funções puras sem estado (format, validação, links)
 ├── routes/            # file-based routing do TanStack Start (camada HTTP/URL)
@@ -22,7 +22,7 @@ src/
 ├── test/              # testes de integração/e2e e setup do Vitest
 ├── styles.css         # Tailwind v4
 ├── router.tsx         # criação do router
-└── server.ts          # entry SSR (wrapper de erro) — migra para server/ quando houver backend
+└── server.ts          # encanamento SSR do TanStack Start (wrapper de erro) — permanece em src/
 ```
 
 ### `pages/` ≡ `src/routes/`
@@ -39,34 +39,35 @@ de páginas é `src/routes/`:
 
 `routeTree.gen.ts` é gerado automaticamente — nunca editar à mão.
 
-## Backend — `server/` (alvo, ainda não existe)
-
-Hoje não há backend: o app é local-first (IndexedDB, sem servidor próprio).
-Quando houver, a estrutura é:
+## Backend — `server/` (existe desde a Fase 0)
 
 ```text
 server/
-├── routes/     # SOMENTE tratamento de requisições HTTP (parse, status, resposta)
-├── services/   # regras de negócio (nunca fala com HTTP nem com o banco direto)
-├── data/       # acesso a banco de dados, APIs externas e outras integrações
+├── services/   # regras de negócio (nunca fala com HTTP nem monta SQL direto)
+├── data/       # schema Drizzle, client do banco e repositórios (único acesso a SQL)
 └── types/      # 1 type/interface por arquivo
 ```
 
-Fluxo obrigatório: `routes → services → data`. Nunca pule camadas.
+A camada HTTP/RPC é o `src/services/api.ts`: cada endpoint é um
+`createServerFn` (mecanismo de rotas de servidor do TanStack Start) que **só**
+parseia entrada, resolve a sessão e delega a um service. Fluxo obrigatório:
 
 ```text
-# ruim — a rota faz negócio e consulta o banco
-server/routes/orders.ts        app.post(...) { const rows = db.query(...) }
-
-# bom — cada camada na sua pasta
-server/routes/orders.ts        app.post(...)  → createOrder(input)
-server/services/orders.ts      createOrder(input)  → ordersRepository.insert(row)
-server/data/orders.ts          ordersRepository.insert(row) → db.query(...)
+componente → src/services/api.ts (RPC/HTTP) → server/services (regras) → server/data (SQL)
 ```
 
-Enquanto o backend não existir, o código server-side atual vive em
-`src/server.ts` (wrapper de erro SSR) e `src/start.ts` (middlewares) e migra
-para `server/routes/` no momento em que a camada de API for criada.
+```text
+# ruim — o handler faz negócio e consulta o banco
+createServerFn().handler(async () => { await db.select()... })
+
+# bom — cada camada na sua pasta
+createServerFn().handler(...)        → updateOrder(db, input)
+server/services/orders.ts            → updateOrder valida, diffa histórico e grava
+server/data/orders.ts                → updateOrderRow monta o UPDATE via Drizzle
+```
+
+`src/server.ts` (wrapper de erro SSR) e `src/start.ts` (middlewares) continuam
+em `src/` como encanamento do TanStack Start — não são endpoints de API.
 
 ## Regras de criação de pastas
 
@@ -81,13 +82,13 @@ Seguem o [code-standards.md](./code-standards.md):
 
 ## Mapa atual → alvo
 
-| Hoje                                                  | Alvo                                                                       |
-| ----------------------------------------------------- | -------------------------------------------------------------------------- |
-| `src/lib/bia/types.ts` (8 tipos juntos)               | `src/lib/bia/types/<Tipo>.ts` (1 por arquivo)                              |
-| `src/lib/bia/store.tsx` (estado + regras + IndexedDB) | `src/services/` (regras) + `src/services/` de persistência                 |
-| `src/lib/bia/format.ts` (funções puras)               | `src/lib/` (mantém)                                                        |
-| `src/components/bia/screens.tsx` (330 linhas)         | quebrar em páginas de `src/routes/` + componentes de `src/components/bia/` |
-| `src/server.ts` / `src/start.ts`                      | `server/routes/` quando houver API                                         |
+| Hoje                                               | Alvo                                                                       |
+| -------------------------------------------------- | -------------------------------------------------------------------------- |
+| `src/lib/bia/types.ts` (vários tipos juntos)       | `src/types/<Tipo>.ts` (1 por arquivo)                                      |
+| `src/lib/bia/store.tsx` (contexto + telas de boot) | manter contrato `useStore`; extrair telas de boot para `components/bia/`   |
+| `src/lib/bia/format.ts` (funções puras)            | `src/lib/` (mantém)                                                        |
+| `src/components/bia/screens.tsx` (330 linhas)      | quebrar em páginas de `src/routes/` + componentes de `src/components/bia/` |
+| `src/server.ts` / `src/start.ts`                   | permanecem como encanamento SSR do TanStack Start                          |
 
 ## Vínculos
 

@@ -83,9 +83,13 @@ mesmo caminho do usuário.
 
 ## Situação atual
 
-`src/test/app-routing.test.tsx` tem **2 testes vermelhos pré-existentes**
-(índice e not-found). Eles precisam ficar verdes — teste vermelho não é
-aceitante como estado final.
+- `server/services/auth.test.ts`, `server/services/clients.test.ts` (merge de
+  clientes) e `server/services/orders.test.ts` (diff de histórico) cobrem as
+  regras novas do backend.
+- `src/test/app-routing.test.tsx` tem **2 testes vermelhos pré-existentes**
+  (índice e not-found): o `RouterProvider` do TanStack Start não pinta no
+  jsdom fora do fluxo SSR/hidratação — dívida de ambiente de teste, não de
+  código. Teste vermelho não é aceitável como estado final.
 
 ## Vínculos
 

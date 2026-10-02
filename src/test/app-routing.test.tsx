@@ -1,9 +1,36 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { cleanup, render, waitFor } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import seed from "@/data/seed.json";
 import { routeTree } from "@/routeTree.gen";
+import type { AppData } from "@/lib/bia/types";
+
+vi.mock("@/services/api", () => ({
+  ApiError: class extends Error {},
+  createNewOrder: vi.fn(),
+  dismissDuplicateKey: vi.fn(),
+  fetchAppDataSnapshot: vi.fn(() => Promise.resolve(buildAppData())),
+  importBackup: vi.fn(),
+  markBackedUpNow: vi.fn(),
+  mergeClient: vi.fn(),
+  patchOrder: vi.fn(),
+  patchOrderFlags: vi.fn(),
+}));
+
+function buildAppData(): AppData {
+  const now = new Date().toISOString();
+  return {
+    ...structuredClone(seed),
+    meta: {
+      importedAt: now,
+      lastBackupAt: now,
+      changesSinceBackup: 0,
+      importTotal: seed.orders.length,
+    },
+  } as AppData;
+}
 
 function renderAt(path: string) {
   const queryClient = new QueryClient();
@@ -14,6 +41,10 @@ function renderAt(path: string) {
   });
   return render(<RouterProvider router={router} />);
 }
+
+beforeEach(() => {
+  vi.spyOn(console, "error").mockImplementation(() => undefined);
+});
 
 afterEach(() => {
   cleanup();

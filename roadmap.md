@@ -3,29 +3,31 @@
 ## Fase 0: Nova Base de Dados (Backend Autenticado)
 
 Foco: colocar os dados reais em um banco privado, atrás de um backend
-autenticado — hoje o app é local-first no IndexedDB, sem servidor, e dados
-reais não podem ficar expostos em repositório público ou bundle.
+autenticado — dados sensíveis não podem ficar expostos em repositório público
+ou bundle.
 
 ### Backend autenticado
 
-- Criar a camada de API seguindo [folder-structure.md](docs/agents-rules/folder-structure.md):
-  `server/` com `routes` (HTTP), `services` (regras de negócio), `data`
-  (banco/integrações) e `types`.
-- Autenticação por usuária; nenhuma rota pública expõe pedidos ou clientes.
+- [x] Camada RPC em `src/services/api.ts` (`createServerFn`) e regras em
+      `server/services/` — sessão por cookie `HttpOnly` (`ldb_session`).
+- [x] Sem registro público: a primeira conta nasce só via
+      `bun run db:owner <email> <senha>`.
 
 ### Banco relacional privado
 
-- Banco próprio (PostgreSQL) — nunca hospedado junto ao bundle público.
-- Seguir [database.md](docs/agents-rules/database.md), Parte B: validar toda
-  query no `psql`, rodar `EXPLAIN ANALYZE` e criar índice para todo `WHERE`.
-- Sem hard-delete: exclusão por flags (`deleted_at`, `archived_at`), preservando
-  a invariante `total = imported + created`.
+- [x] Postgres (Neon) com Drizzle: schema em `server/data/schema.ts`,
+      migrations versionadas em `drizzle/` (`bun run db:migrate`).
+- [x] Índices para as consultas ativas (usuário+data, usuário+status,
+      usuário+cliente) e exclusão apenas por flags — sem hard-delete.
 
 ### Migração dos dados reais
 
-- Importar os pedidos originais (cópia local em `private-data/originals/`)
-  para o banco privado — eles não voltam para arquivos versionados.
-- Migrar o app do IndexedDB para a API autenticada, mantendo as telas atuais.
+- [ ] Criar o projeto na Neon e preencher `DATABASE_URL` no `.env`.
+- [ ] Aplicar migrations (`bun run db:migrate`) e criar a conta (`db:owner`).
+- [ ] Importar os pedidos originais de `private-data/originals/src-data-seed.json`
+      via `bun run db:import` — eles não voltam para arquivos versionados.
+
+## Fase 1: Higienização e Contato Rápido (Quick Win no App)
 
 ## Fase 1: Higienização e Contato Rápido (Quick Win no App)
 

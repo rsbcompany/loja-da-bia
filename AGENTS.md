@@ -37,6 +37,15 @@ Seed (Python, gera `src/data/seed.json` — nunca editar o JSON à mão):
 python3 tools/build_seed.py
 ```
 
+Banco de dados (Postgres privado na Neon; `DATABASE_URL` no `.env`):
+
+```sh
+bun run db:generate            # gerar SQL de migration (drizzle-kit)
+bun run db:migrate             # aplicar migrations
+bun run db:owner <email> <senha>   # bootstrap: cria a primeira conta (uso único)
+bun run db:import <seed.json> <email>  # importar dados (sintético ou real) para a conta
+```
+
 ## Portas
 
 | Serviço           | Porta  | Comando           |
@@ -52,12 +61,13 @@ Build de produção sai em `.output/` (preset Nitro `cloudflare-module`).
 - **Tailwind CSS 4** + **shadcn/ui** (Radix) — estilo e componentes de UI
 - **Zod** + **react-hook-form** — validação e formulários
 - **Vitest** + **Testing Library** + **jsdom** — testes
+- **Drizzle ORM** + **Neon** (`@neondatabase/serverless`) — Postgres privado, migrations versionadas
+- **TanStack Query** — cache/estado assíncrono do cliente
 - **recharts**, **sonner**, **lucide-react**, **date-fns** — gráficos, toast, ícones, datas
-- **IndexedDB** (API nativa) — persistência local, sem backend
 
 ## Loja da Bia
 
-- Os dados do app vivem em um único documento `AppData` no IndexedDB (`src/lib/bia/store.tsx`); o seed versionado contém dados sintéticos de demonstração e não há backend.
-- O seed é gerado por `tools/build_seed.py` a partir de `tools/pedidos.csv`; nunca edite `src/data/seed.json` à mão.
-- Cópias locais dos dados originais ficam em `private-data/originals/`, ignorada pelo Git. Dados reais não devem entrar em arquivos versionados ou bundles públicos.
-- Pedidos nunca são removidos definitivamente: use flags de arquivo/exclusão — invariante sem perda (`total = imported + created`).
+- Os dados do app vivem em um **Postgres privado (Neon)** acessado por backend autenticado: sessão em cookie `HttpOnly` (`ldb_session`), camada RPC em `src/services/api.ts` (`createServerFn`), regras de negócio em `server/services/`, acesso a dados em `server/data/` (Drizzle). **Sem IndexedDB** — o servidor é a única fonte da verdade.
+- Setup inicial: `cp .env.example .env` (DATABASE_URL da Neon) → `bun run db:migrate` → `bun run db:owner <email> <senha>` → `bun run db:import <seed.json> <email>`.
+- O seed versionado (`src/data/seed.json`) é gerado por `tools/build_seed.py` e contém dados **sintéticos** de demonstração; dados reais ficam em `private-data/originals/` (ignorada pelo Git) e entram no banco só via `db:import` — nunca em arquivos versionados.
+- Pedidos nunca são removidos definitivamente: use flags de arquivo/exclusão — invariante sem perda (`total = imported + created`); o histórico de alterações por campo é a trilha de auditoria.
