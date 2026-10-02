@@ -111,7 +111,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       let d = await idbGet().catch(() => undefined);
       if (!d) {
         d = fromSeed();
-        await idbSet(d);
+        await idbSet(d).catch(() => toast.error("Não foi possível salvar no aparelho"));
         toast.success(`Histórico importado: ${d.orders.length} pedidos da planilha`);
       }
       navigator.storage?.persist?.().catch(() => {});
